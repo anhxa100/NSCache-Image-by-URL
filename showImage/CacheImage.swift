@@ -16,6 +16,7 @@ class CacheImage {
     
     
     // Creates a task that retrieves the contents of the specified URL, then calls a handler upon completion.
+    // dataTask(with:completionHandler:)
     // Tạo nhiệm vụ truy xuất nội dung của URL được chỉ định, sau đó gọi trình xử lý sau khi hoàn thành.
     static func downloadImage(withURL url: URL, completion: @escaping (_ image: UIImage?) -> () ) {
         
@@ -37,7 +38,8 @@ class CacheImage {
         dataTask.resume()
     }
     
-    
+    // Take image from cache
+    //  Lấy ảnh từ cache object để sử dụng
     static func getImage(withURL url: URL, completion: @escaping (_ image: UIImage?) -> () ) {
         if let image = cache.object(forKey: url.absoluteString as NSString) {
             completion(image)
